@@ -1,8 +1,8 @@
 # Cloud
 Repository contains automatic setup of 3 major cloud providers : AWS, GoogleCloud, Azure and deployment of spring petclinic project. 
+---------------------------------
 
 ## AWS
----------------------------------
 ### Setup
 Requirements:
 - LinuxOS - preferably Ubuntu 20.04
@@ -26,6 +26,7 @@ AWS_SECRET_ACCESS_KEY=.........
 ![](./doc/images/aws/key3.png)
 
 ### Usage of automatic setup
+##### <create_aws.sh> overrides aws credentials created with `aws configure` !
 ```
 <create_aws.sh> -f <cred.txt>
 ```
@@ -49,11 +50,12 @@ To view website, enter yours instance public IP address to web browser.
 * TODO: specify tags from command line
 * TODO: proper turn off after CTRL+C
 * TODO: naming ssh key, and specifing location
+---------------------------------
 
 ## GoogleCloud
------------------------
 tbc.
+---------------------------------
 
 ## Azure
------------------------
 tbc.
+---------------------------------
