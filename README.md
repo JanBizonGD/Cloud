@@ -1,5 +1,7 @@
 # Cloud
 Repository contains automatic setup of 3 major cloud providers : AWS, GoogleCloud, Azure and deployment of spring petclinic project. 
+Scripts were executed on ubuntu container - **not to override aws credentials**.
+
 ---------------------------------
 
 ## AWS
@@ -37,7 +39,7 @@ PUBIP=.....
 REPURI=....
 REPURL=....
 ```
-At the end of create aws - IP of instance is presented.
+At the end of create aws - IP of instance is presented. AWS linux was used as a base image for instance.
 ```
 <lauch_aws.sh> -f <cred.txt>
 ```
