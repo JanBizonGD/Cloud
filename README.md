@@ -21,9 +21,9 @@ AWS_SECRET_ACCESS_KEY=.........
 ```
 
 ##### To obtain key - go to IAM inside AWS Dashboard.
-![](/doc/images/aws/key1.png|width=500)
-![](doc/images/aws/key2.png)
-![](doc/images/aws/key3.png|width=500)
+![](./doc/images/aws/key1.png)
+![](./doc/images/aws/key2.png)
+![](./doc/images/aws/key3.png)
 
 ### Usage of automatic setup
 ```
@@ -42,7 +42,7 @@ Expected results:
 
 ### Test
 To view website, enter yours instance public IP address to web browser.
-![](./doc/images/aws/web.png|width=700)
+![](./doc/images/aws/web.png )
 
 
 ##### Instance that will be deleted depends on tags specified inside script. If there are more then one instance running with same tags, behaviour is undefined (unknown instance will be deleted).
