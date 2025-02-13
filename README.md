@@ -1,6 +1,6 @@
 # Cloud
 Repository contains automatic setup of 3 major cloud providers : AWS, GoogleCloud, Azure and deployment of spring petclinic project. 
-Scripts were executed on ubuntu container - **not to override aws credentials**.
+Scripts were executed on ubuntu container - **not to override aws credentials** related to GridDynamics. I also used cloudguru AWS sandbox.
 
 ---------------------------------
 
