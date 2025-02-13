@@ -27,9 +27,17 @@ AWS_SECRET_ACCESS_KEY=.........
 
 ### Usage of automatic setup
 ##### <create_aws.sh> overrides aws credentials created with `aws configure` !
+##### Region is hardcoded - at the moment without possibility to specify on commandline!
 ```
 <create_aws.sh> -f <cred.txt>
 ```
+Values are automaticly assiged after creating instance to file with credentials:
+```
+PUBIP=.....
+REPURI=....
+REPURL=....
+```
+At the end of create aws - IP of instance is presented.
 ```
 <lauch_aws.sh> -f <cred.txt>
 ```
@@ -50,6 +58,9 @@ To view website, enter yours instance public IP address to web browser.
 * TODO: specify tags from command line
 * TODO: proper turn off after CTRL+C
 * TODO: naming ssh key, and specifing location
+* TODO: Specify region
+* TODO: Do not override created credentials
+* TODO: specify other hardcoded values like: repository name, key name, etc.
 ---------------------------------
 
 ## GoogleCloud
