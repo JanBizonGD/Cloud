@@ -66,7 +66,31 @@ To view website, enter yours instance public IP address to web browser.
 ---------------------------------
 
 ## GoogleCloud
-tbc.
+### Setup
+Requirements:
+- LinuxOS - preferably Ubuntu 20.04
+- access to Google Cloud
+- service access credentials
+- network connection between local machine and google cloud
+
+Credential file format:
+```
+{
+  "type": "service_account",
+  "project_id": "playground-s-11-3.....",
+  "private_key_id": "7f2ff422................",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQI ........ ,
+  "client_email": "<account_id>@<project_id>.iam.gserviceaccount.com",
+  "client_id": "1117634874.........",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cli-service-account-1%40<project_id>.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+
+```
+
 ---------------------------------
 
 ## Azure
