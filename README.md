@@ -1,6 +1,7 @@
 # Cloud
 Repository contains automatic setup of 3 major cloud providers : AWS, GoogleCloud, Azure and deployment of spring petclinic project. 
 Scripts were executed on ubuntu container - **not to override aws credentials** related to GridDynamics. I also used cloudguru AWS sandbox.
+Cloud testing was made on cloud guru playgroud. Cloud guru playgroud gives some credentails without need to login to account.
 
 ### Build
 Before launching petclinic website build docker image and name it : `petclinic:latest`. **(Important: When I was doing this, I used containerd and build with (multiplatform): `docker buildx build --platform linux/amd64,linux/arm64 -t...`). To turn on mutliplatform (containerd) in Docker Desktop - Settings/General/Use containerd for pulling and storing images - to check on** 
@@ -117,13 +118,76 @@ How to get credentaials:
 
 **Instance are automaticly deleted after full setup and registration of clean up funciton. After that when user press combination of CTRL+C everything that was created will be deleted.**
 
-TODO: If there is resource with same name as that specified inside script then it will be used and deleted when pressed CTRL+C. It is not intended behaviour.
-TODO: Specify from command line zone 
-TODO: Specify form command line additional tags
-TODO: GCR possibly not private - to be checked
+* TODO: If there is resource with same name as that specified inside script then it will be used and deleted when pressed CTRL+C. It is not intended behaviour.
+* TODO: Specify from command line zone 
+* TODO: Specify form command line additional tags
+* TODO: GCR possibly not private - to be checked
 
 ---------------------------------
 
 ## Azure
-tbc.
+### Setup
+Requirements:
+- LinuxOS - preferably Ubuntu 20.04
+- access to Azure Cloud
+- service principal credentials
+- tenant ID
+- resource group ID
+- network connection between local machine and google cloud
+
+Then create file containing key access token.
+
+Credential file format:
+```
+AZ_ACCESS_KEY_ID=....
+AZ_SECRET_ACCESS_KEY=...
+AZ_TENANT_ID=........
+```
+##### One of ways to obtain resource group id:
+`https://portal.azure.com/.........com/resource/subscriptions/............../resourceGroups/[resource group id]/overview`
+
+##### To obtain tenantID - go to Microsoft Endra ID and copy tenantID.
+Obtaining tenantID:
+![](./doc/images/azure/tenantID.png)
+
+#### Service principal ID:
+https://docs.turbo360.com/docs/what-is-service-principal
+Service principal can be accessed inside Microsoft Entra ID:
+![](./doc/images/azure/service-principal.png)
+
+
+### Usage of automatic setup
+`</config.sh> -f <cred-file> -g <resource-group>`
+Every resource created by config.sh is created inside resource group specified at the start.
+
+##### ACR name has to be globaly unique. (It is present as <acr-name>.azurecr.io)
+**After createing all of resources and waiting for close, website not shows its content immediately - you need to wait a bit.**
+IP address is pressent after creation of VM inside json: `publicIPAddress`.
+
+### Run
+`run.sh` contains constant configuration for VM. After obtaining required variable they are written to `tmp.sh` (`tmp.sh` is copy of `run.sh` but with nessesery varaiables).
+
+Fragment below is replaced with variables. It is done after running `<config.sh>` file.
+```
+# [----- EXPORT ENV ----]
+```
+
+**Checking existance of resource is not required. If configuraton doesnt change with existing resource - everything will be fine. Problem occures only when some parameter has been changed or for example `user-data` file changed its content.**
+`user-data` is used to init VM.
+
+**NOTE:** use `journalctl | grep sudo / cloud-init` to debug what happend during vm initialization with `user-data`.
+
+
+
+### Deletion
+Everything created is deleted after pressing CTRL+C. **NOTE** that it is done only after registering clean up function (This step is registered on screen).
+
+After successfull deletion: `================= End of deletion ======================` is present.
+
+
+* TODO: Hide credentials - currently can be displayed in journalctl of vm
+* TODO: Writing credentails to file - is it secure (run.sh) ?
+* TODO: ACR possibly not private - to be checked
+* TODO: Region specification ?
+* TODO: Diffrent login method - not by tenantID maybe (if possible maybe by subscriptionID).
 ---------------------------------
