@@ -3,6 +3,8 @@ Repository contains automatic setup of 3 major cloud providers : AWS, GoogleClou
 Scripts were executed on ubuntu container - **not to override aws credentials** related to GridDynamics. I also used cloudguru AWS sandbox.
 Cloud testing was made on cloud guru playgroud. Cloud guru playgroud gives some credentails without need to login to account.
 
+Most of examples was made inside container to not override existing credentials with playgroud once. Files was mapped to home directory (`/root/`).
+
 ### Build
 Before launching petclinic website build docker image and name it : `petclinic:latest`. **(Important: When I was doing this, I used containerd and build with (multiplatform): `docker buildx build --platform linux/amd64,linux/arm64 -t...`). To turn on mutliplatform (containerd) in Docker Desktop - Settings/General/Use containerd for pulling and storing images - to check on** 
 
