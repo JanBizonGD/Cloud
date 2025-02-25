@@ -192,4 +192,5 @@ After successfull deletion: `================= End of deletion =================
 * TODO: ACR possibly not private - to be checked
 * TODO: Region specification ?
 * TODO: Diffrent login method - not by tenantID maybe (if possible maybe by subscriptionID).
+* TODO: Specify ACR name
 ---------------------------------
