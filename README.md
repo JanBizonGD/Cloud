@@ -179,7 +179,7 @@ Fragment below is replaced with variables. It is done after running `<config.sh>
 
 **NOTE:** use `journalctl | grep sudo / cloud-init` to debug what happend during vm initialization with `user-data`.
 
-
+As specified in test - **In Azure there will be no Petclinic output !!**
 
 ### Deletion
 Everything created is deleted after pressing CTRL+C. **NOTE** that it is done only after registering clean up function (This step is registered on screen).
