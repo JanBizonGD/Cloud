@@ -13,7 +13,7 @@ Before launching petclinic website build docker image and name it : `petclinic:l
 
 
 ### Test
-To view website, enter yours instance public IP address to web browser.
+To view website, enter yours instance public IP address to web browser. **Remember to use http (not https).**
 ![](./doc/images/aws/web.png )
 
 ---------------------------------
