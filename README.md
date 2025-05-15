@@ -3,6 +3,8 @@ Repository contains automatic setup of 3 major cloud providers : AWS, GoogleClou
 Scripts were executed on ubuntu container - **not to override aws credentials** related to GridDynamics. I also used cloudguru AWS sandbox.
 Cloud testing was made on cloud guru playgroud. Cloud guru playgroud gives some credentails without need to login to account.
 
+Most of examples was made inside container to not override existing credentials with playgroud once. Files was mapped to home directory (`/root/`).
+
 ### Build
 Before launching petclinic website build docker image and name it : `petclinic:latest`. **(Important: When I was doing this, I used containerd and build with (multiplatform): `docker buildx build --platform linux/amd64,linux/arm64 -t...`). To turn on mutliplatform (containerd) in Docker Desktop - Settings/General/Use containerd for pulling and storing images - to check on** 
 
@@ -11,7 +13,7 @@ Before launching petclinic website build docker image and name it : `petclinic:l
 
 
 ### Test
-To view website, enter yours instance public IP address to web browser.
+To view website, enter yours instance public IP address to web browser. **Remember to use http (not https).**
 ![](./doc/images/aws/web.png )
 
 ---------------------------------
@@ -177,7 +179,7 @@ Fragment below is replaced with variables. It is done after running `<config.sh>
 
 **NOTE:** use `journalctl | grep sudo / cloud-init` to debug what happend during vm initialization with `user-data`.
 
-
+As specified in test - **In Azure there will be no Petclinic output !!**
 
 ### Deletion
 Everything created is deleted after pressing CTRL+C. **NOTE** that it is done only after registering clean up function (This step is registered on screen).
@@ -190,4 +192,5 @@ After successfull deletion: `================= End of deletion =================
 * TODO: ACR possibly not private - to be checked
 * TODO: Region specification ?
 * TODO: Diffrent login method - not by tenantID maybe (if possible maybe by subscriptionID).
+* TODO: Specify ACR name
 ---------------------------------
